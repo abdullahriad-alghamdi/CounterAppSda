@@ -11,7 +11,10 @@ function App() {
   const handleIncrement = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (count < 5) {
       dispatch(increment());
+(event.target as HTMLButtonElement).disabled = false;
+
     } else {
+(event.target as HTMLButtonElement).disabled = true;
       (event.target as HTMLButtonElement).style.backgroundColor = "red";
       (event.target as HTMLButtonElement).style.color = "white";
       setTimeout(() => {
@@ -23,6 +26,7 @@ function App() {
   const handleDecrement = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (count > -5) {
       dispatch(decrement());
+(event.target as HTMLButtonElement).disabled = false;
     } else {
       (event.target as HTMLButtonElement).disabled = true;
       (event.target as HTMLButtonElement).style.backgroundColor = "red";
